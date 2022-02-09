@@ -11,6 +11,7 @@
         {{-- title --}}
         <h1 class="text-center my-3">Comic info</h1>
 
+        {{-- comic card --}}
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-3 d-flex justify-content-center align-items-center">
@@ -29,7 +30,9 @@
             </div>
         </div>
 
+        {{-- return button --}}
         <a href="{{route('comics.index')}}"><button type="button" class="btn btn-dark">Comics list</button></a>
+        
     </div>
 
 @endsection

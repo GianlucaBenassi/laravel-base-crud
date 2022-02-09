@@ -11,6 +11,13 @@
         {{-- title --}}
         <h1 class="text-center my-3">Comics list</h1>
 
+        {{-- add comic button --}}
+        <div class="row mb-2">
+            <div class="col d-flex justify-content-end">
+                <a href="{{route('comics.create')}}"><button type="button" class="btn btn-success">Add new comic</button></a>
+            </div>
+        </div>
+
         {{-- comics table --}}
         <table class="table table-striped">
             <thead class="thead-dark">
