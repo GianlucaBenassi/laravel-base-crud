@@ -33,12 +33,15 @@
             <tbody>
                 @foreach ($comics as $comic)
                     <tr>
-                        <td>{{$comic->id}}</th>
-                        <td>{{$comic->title}}</th>
-                        <td>{{$comic->type}}</th>
-                        <td>{{$comic->series}}</th>
-                        <td>{{$comic->price}}$</th>
-                        <td><a href="{{route('comics.show', $comic->id)}}"><button type="button" class="btn btn-info">Info</button></a></th>
+                        <td>{{$comic->id}}</td>
+                        <td>{{$comic->title}}</td>
+                        <td>{{$comic->type}}</td>
+                        <td>{{$comic->series}}</td>
+                        <td>{{$comic->price}}$</td>
+                        <td>
+                            <a href="{{route('comics.show', $comic->id)}}"><button type="button" class="btn btn-info">Info</button></a>
+                            <a href="{{route('comics.edit', $comic->id)}}"><button type="button" class="btn btn-warning">Modify</button></a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

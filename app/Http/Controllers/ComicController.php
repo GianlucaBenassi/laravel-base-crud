@@ -79,9 +79,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("comics.edit", ["comic" => $comic]);
     }
 
     /**
@@ -91,9 +91,27 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        $comic->description = $data["description"];
+
+        // image control
+        if ($data["image"] == "") {
+            $comic->image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+        } else {
+            $comic->image = $data["image"];
+        }
+
+        $comic->price = $data["price"];
+        $comic->series = $data["series"];
+        $comic->sale_date = $data["sale_date"];
+        $comic->type = $data["type"];
+        $comic->save();
+
+        return redirect()->route("comics.show", $comic->id);
+
     }
 
     /**
