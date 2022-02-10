@@ -37,7 +37,29 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // get data
+        $data = $request->all();
+
+        // add new data
+        $newComic = new Comic();
+        $newComic->title = $data["title"];
+        $newComic->description = $data["description"];
+
+        // image control
+        if ($data["image"] == "") {
+            $newComic->image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+        } else {
+            $newComic->image = $data["image"];
+        }
+
+        $newComic->price = $data["price"];
+        $newComic->series = $data["series"];
+        $newComic->sale_date = $data["sale_date"];
+        $newComic->type = $data["type"];
+        $newComic->save();
+
+        // redirect to item show page
+        return redirect()->route("comics.show", $newComic->id);
     }
 
     /**

@@ -12,7 +12,9 @@
         <h1 class="text-center my-3">Add new comic</h1>
 
         {{-- add form --}}
-        <form class="mb-5">
+        <form class="mb-5" action="{{route('comics.store')}}" method="POST">
+            @csrf
+
             {{-- title --}}
             <div class="form-group">
                 <label for="title">Title</label>
@@ -27,6 +29,7 @@
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="text" class="form-control" id="image" name="image" placeholder="Add image link">
+                <small class="form-text text-muted">If empty add standard image</small>
             </div>
 
             <div class="form-row">
@@ -38,7 +41,7 @@
                 {{-- type --}}
                 <div class="form-group col-6">
                     <label for="type">State</label>
-                    <select id="type" class="form-control">
+                    <select name="type" id="type" class="form-control">
                         <option value="comic book">Comic book</option>
                         <option value="graphic novel">Graphic novel</option>
                         <option value="other">Other</option>
@@ -55,7 +58,7 @@
                 {{-- price --}}
                 <div class="form-group col-6">
                     <label for="price">Price</label>
-                    <input type="number" class="form-control" id="price" name="price" placeholder="Add price">
+                    <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Add price">
                 </div>
             </div>
             {{-- add button --}}
