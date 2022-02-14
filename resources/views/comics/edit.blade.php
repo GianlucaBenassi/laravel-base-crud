@@ -28,8 +28,8 @@
             {{-- image --}}
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="text" class="form-control" id="image" name="image" placeholder="Add image link" value="{{$comic->image}}">
                 <small class="form-text text-muted">If empty add standard image</small>
+                <input type="text" class="form-control" id="image" name="image" placeholder="Add image link" value="{{$comic->image}}">
             </div>
 
             <div class="form-row">

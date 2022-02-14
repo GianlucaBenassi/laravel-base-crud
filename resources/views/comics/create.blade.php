@@ -18,34 +18,49 @@
             {{-- title --}}
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Add title">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Add title">
+                @error('title')
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
             {{-- description --}}
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" name="description" id="description" rows="8" placeholder="Add description"></textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="8" placeholder="Add description"></textarea>
+                @error('description')
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
             {{-- image --}}
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="text" class="form-control" id="image" name="image" placeholder="Add image link">
                 <small class="form-text text-muted">If empty add standard image</small>
+                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="Add image link">
+                @error('image')
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
 
             <div class="form-row">
                 {{-- series --}}
                 <div class="form-group col-6">
                     <label for="series">Series</label>
-                    <input type="text" class="form-control" id="series" name="series" placeholder="Add series">
+                    <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" placeholder="Add series">
+                    @error('series')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
                 {{-- type --}}
                 <div class="form-group col-6">
                     <label for="type">Type</label>
-                    <select name="type" id="type" class="form-control">
+                    <select name="type" id="type" class="form-control @error('type') is-invalid @enderror">
                         <option value="comic book">Comic book</option>
                         <option value="graphic novel">Graphic novel</option>
                         <option value="other">Other</option>
                     </select>
+                    @error('type')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -53,12 +68,18 @@
                 {{-- sale date --}}
                 <div class="form-group col-6">
                     <label for="date">Sale date</label>
-                    <input type="date" class="form-control" id="date" name="sale_date" placeholder="Add sale date">
+                    <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="date" name="sale_date" placeholder="Add sale date">
+                    @error('sale_date')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
                 {{-- price --}}
                 <div class="form-group col-6">
                     <label for="price">Price</label>
-                    <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Add price">
+                    <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Add price">
+                    @error('price')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
             </div>
             {{-- add button --}}
