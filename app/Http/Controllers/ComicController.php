@@ -110,6 +110,20 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
+        // validation
+        $request->validate([
+            "title" => "required|string|max:100",
+            "description" => "required|string",
+            "image" => "nullable|url",
+            "price" => "required|numeric|min:0.01|max:999.99",
+            "series" => "required|string|max:50",
+            "sale_date" => "required|date",
+            "type" => [
+                "required",
+                Rule::in(["comic book", "graphic novel", "other"])
+            ]
+        ]);
+
         $comic->description = $data["description"];
 
         // image control
