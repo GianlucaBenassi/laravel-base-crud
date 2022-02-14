@@ -40,7 +40,7 @@
                 </div>
                 {{-- type --}}
                 <div class="form-group col-6">
-                    <label for="type">State</label>
+                    <label for="type">Type</label>
                     <select name="type" id="type" class="form-control">
                         <option value="comic book" {{$comic->type == "comic book" ? "selected" : ""}}>Comic book</option>
                         <option value="graphic novel" {{$comic->type == "graphic novel" ? "selected" : ""}}>Graphic novel</option>

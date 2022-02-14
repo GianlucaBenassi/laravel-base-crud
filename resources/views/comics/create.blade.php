@@ -40,7 +40,7 @@
                 </div>
                 {{-- type --}}
                 <div class="form-group col-6">
-                    <label for="type">State</label>
+                    <label for="type">Type</label>
                     <select name="type" id="type" class="form-control">
                         <option value="comic book">Comic book</option>
                         <option value="graphic novel">Graphic novel</option>
